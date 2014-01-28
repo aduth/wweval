@@ -14,7 +14,7 @@
   if (!(URL && this.Blob && this.Worker)) {
     return function(expr, callback) {
       callback(eval(expr));
-    }
+    };
   }
 
   // Track running intervals

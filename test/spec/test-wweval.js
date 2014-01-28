@@ -13,15 +13,16 @@ describe('wweval', function() {
   });
 
   it('should handle multiple expressions simultaneously', function(done) {
-    var fixtures = '123456789'.split(''),
-      iter = 0;
+    var iter = 0,
+      amount = 10,
+      testDone;
 
-    for (var f = 0, fl = fixtures.length; f < fl; f++) {
-      var fixture = fixtures[f];
-      wweval(fixture, function(result) {
-        expect(parseInt(fixture, 10)).to.equal(result);
-        if (++iter === fixtures.length) done();
-      });
+    testDone = function(result) {
+      if (++iter === amount) done();
+    };
+
+    for (var f = 0; f < amount; f++) {
+      wweval('1', testDone);
     }
   });
 
