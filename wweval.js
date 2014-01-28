@@ -10,6 +10,13 @@
     global.wweval = factory();
   }
 }(this, function() {
+  // Fallback to eval if web workers unsupported
+  if (!(URL && this.Blob && this.Worker)) {
+    return function(expr, callback) {
+      callback(eval(expr));
+    }
+  }
+
   // Track running intervals
   var callbacks = [ ];
 
@@ -30,11 +37,6 @@
   };
 
   return function(expr, callback) {
-    // Fallback to eval if web workers unsupported
-    if (!(URL && Blob && Worker)) {
-      callback(eval(expr));
-    }
-
     // Add callback to queue
     callbacks.push(callback || '');
     worker.postMessage({

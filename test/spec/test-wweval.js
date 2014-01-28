@@ -13,15 +13,16 @@ describe('wweval', function() {
   });
 
   it('should handle multiple expressions simultaneously', function(done) {
-    var fixtures = '123456789'.split('');
+    var fixtures = '123456789'.split(''),
+      iter = 0;
 
-    fixtures.forEach(function(fixture) {
+    for (var f = 0, fl = fixtures.length; f < fl; f++) {
+      var fixture = fixtures[f];
       wweval(fixture, function(result) {
         expect(parseInt(fixture, 10)).to.equal(result);
-        fixtures.shift();
-        if (!fixtures.length) done();
+        if (++iter === fixtures.length) done();
       });
-    });
+    }
   });
 
 });
