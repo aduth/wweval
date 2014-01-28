@@ -39,7 +39,7 @@ define([
 
 ## Attribution
 
-This is largely inspired by the asynchronous `eval` example on MDN ([link](https://developer.mozilla.org/en-US/docs/Web/Guide/Performance/Using_web_workers#Example_.231.3A_Create_a_generic_.22asynchronous_eval().22)), which unfortunately results in an same-origin violation error in modern browsers.
+This is largely inspired by the asynchronous `eval` example on MDN ([link](https://developer.mozilla.org/en-US/docs/Web/Guide/Performance/Using_web_workers#Example_.231.3A_Create_a_generic_.22asynchronous_eval%28%29.22)), which unfortunately results in an same-origin violation error in modern browsers.
 
 ## License
 
