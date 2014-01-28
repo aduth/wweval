@@ -36,7 +36,7 @@ module.exports = function(grunt) {
     },
 
     mocha: {
-      index: ['test/index.html'],
+      index: [ 'test/index.html' ],
       options: {
         run: true
       }

@@ -29,7 +29,7 @@
     }
   };
 
-  return function (expr, callback) {
+  return function(expr, callback) {
     // Fallback to eval if web workers unsupported
     if (!(URL && Blob && Worker)) {
       callback(eval(expr));
