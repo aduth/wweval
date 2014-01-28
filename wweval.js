@@ -16,8 +16,8 @@
   var URL = URL || webkitURL;
 
   // Construct worker object
-  var eval = 'onmessage = function(e) { postMessage({ "id": e.data.id, "eval": eval(e.data.expr) }); }',
-    blob = new Blob([ eval ], { type: 'application/javascript' }),
+  var process = 'onmessage = function(e) { postMessage({ "id": e.data.id, "eval": eval(e.data.expr) }); }',
+    blob = new Blob([ process ], { type: 'application/javascript' }),
     worker = new Worker(URL.createObjectURL(blob));
 
   worker.onmessage = function(e) {
